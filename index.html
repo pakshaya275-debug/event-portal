@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>College Event Management Portal</title>
+<style>
+:root{--ink:#241b2f;--muted:#5f566b;--bg:#f5f2f9;--accent:#5b2a86;--soft:#eadff5;--line:#ddd3e8;--ok:#1b7f4b;--warn:#b45309}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;padding:26px 14px}
+.wrap{max-width:980px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 6px 24px rgba(36,27,47,.12)}
+header{background:var(--accent);color:#fff;padding:30px 32px}
+header h1{font-size:1.8rem;line-height:1.25}
+.badge{display:inline-block;margin-top:12px;background:#fff;color:var(--accent);font-size:.8rem;font-weight:700;padding:3px 12px;border-radius:999px}
+section{padding:24px 32px;border-top:1px solid var(--line)}
+h2{font-size:1.1rem;color:var(--accent);margin-bottom:12px}
+.events{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.event{border:1px solid var(--line);border-radius:12px;padding:14px}
+.event h3{font-size:1.02rem}
+.meta{color:var(--muted);font-size:.9rem}
+.type{display:inline-block;background:var(--soft);color:var(--accent);font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:999px;margin-bottom:6px}
+.seats{font-size:.85rem;font-weight:600;color:var(--ok);margin-top:6px}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--accent)}
+ol{padding-left:20px;color:var(--muted)}
+form,.status{display:grid;gap:10px;max-width:460px}
+label{font-weight:600;font-size:.92rem}
+input,select{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;margin-top:4px}
+button{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:10px 14px;font:inherit;font-weight:700;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #cdb4e6;outline-offset:2px}
+.msg{padding:10px 14px;border-radius:8px;background:var(--soft);color:var(--accent);font-weight:600;display:none;max-width:460px}
+footer{background:var(--soft);text-align:center;color:var(--accent);font-weight:600;font-size:.85rem;padding:14px}
+@media(max-width:640px){header,section{padding-left:18px;padding-right:18px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <h1>College Event Management Portal</h1>
+    <p>Symposiums, hackathons, workshops and festivals</p>
+    <span class="badge">Version 1</span>
+  </header>
+
+  <section>
+    <h2>Upcoming events</h2>
+    <div class="events">
+      <article class="event" data-item data-name="National Tech Hackathon" data-limit="3"><span class="type">Hackathon</span><h3>National Tech Hackathon</h3><p class="meta">24 Oct 2026 &middot; Technology Tower, Lab 1</p><p class="seats">Seats: <span class="left">3</span> left</p></article>
+      <article class="event" data-item data-name="DevOps Workshop" data-limit="40"><span class="type">Workshop</span><h3>DevOps Workshop</h3><p class="meta">28 Oct 2026 &middot; Seminar Hall A</p><p class="seats">Seats: <span class="left">40</span> left</p></article>
+      <article class="event" data-item data-name="Technical Symposium" data-limit="200"><span class="type">Symposium</span><h3>Technical Symposium</h3><p class="meta">05 Nov 2026 &middot; Main Auditorium</p><p class="seats">Seats: <span class="left">200</span> left</p></article>
+      <article class="event" data-item data-name="Cultural Fest" data-limit="500"><span class="type">Festival</span><h3>Cultural Fest</h3><p class="meta">12 Nov 2026 &middot; Open Air Theatre</p><p class="seats">Seats: <span class="left">500</span> left</p></article>
+      <article class="event" data-item data-name="Inter-college Coding Contest" data-limit="60"><span class="type">Competition</span><h3>Inter-college Coding Contest</h3><p class="meta">19 Nov 2026 &middot; Computer Centre</p><p class="seats">Seats: <span class="left">60</span> left</p></article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Event schedule</h2>
+    <div class="scroll">
+    <table>
+      <tr><th>Event</th><th>Date</th><th>Time</th><th>Venue</th></tr>
+      <tr><td>National Tech Hackathon</td><td>24 Oct 2026</td><td>09:00 AM</td><td>Technology Tower, Lab 1</td></tr>
+      <tr><td>DevOps Workshop</td><td>28 Oct 2026</td><td>10:00 AM</td><td>Seminar Hall A</td></tr>
+      <tr><td>Technical Symposium</td><td>05 Nov 2026</td><td>09:30 AM</td><td>Main Auditorium</td></tr>
+      <tr><td>Cultural Fest</td><td>12 Nov 2026</td><td>05:00 PM</td><td>Open Air Theatre</td></tr>
+      <tr><td>Inter-college Coding Contest</td><td>19 Nov 2026</td><td>10:00 AM</td><td>Computer Centre</td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Registration instructions</h2>
+    <ol>
+      <li>Choose an event and fill in your name and register number below.</li>
+      <li>Press Register. Seats are allotted in order of registration.</li>
+      <li>When the participant limit is reached you are placed on the waiting list.</li>
+      <li>Use the status checker with your register number to see your status.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Register for an event</h2>
+    <form id="regForm">
+      <div><label for="name">Student name</label><input id="name" required></div>
+      <div><label for="reg">Register number</label><input id="reg" required></div>
+      <div><label for="ev">Event</label><select id="ev" required></select></div>
+      <button type="submit">Register</button>
+    </form>
+    <p class="msg" id="regMsg" role="status"></p>
+  </section>
+
+  <section>
+    <h2>Check registration status</h2>
+    <div class="status">
+      <div><label for="chk">Register number</label><input id="chk"></div>
+      <button id="chkBtn" type="button">Check status</button>
+    </div>
+    <p class="msg" id="chkMsg" role="status"></p>
+  </section>
+
+  <footer>Deployed by a Jenkins CI/CD pipeline on Kubernetes (3 replicas)</footer>
+</main>
+
+<script>
+var regs = [];
+var cards = document.querySelectorAll('.event');
+var sel = document.getElementById('ev');
+cards.forEach(function(c){ var o = document.createElement('option'); o.textContent = c.dataset.name; sel.appendChild(o); });
+
+function show(id, text){ var m = document.getElementById(id); m.textContent = text; m.style.display = 'block'; }
+
+document.getElementById('regForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var reg = document.getElementById('reg').value.trim().toUpperCase();
+  var name = document.getElementById('name').value.trim();
+  var ev = sel.value;
+  var card = Array.prototype.filter.call(cards, function(c){ return c.dataset.name === ev; })[0];
+  var taken = regs.filter(function(r){ return r.ev === ev && r.status === 'Confirmed'; }).length;
+  var status = taken < Number(card.dataset.limit) ? 'Confirmed' : 'Waiting list';
+  regs.push({reg: reg, name: name, ev: ev, status: status});
+  card.querySelector('.left').textContent = Math.max(0, Number(card.dataset.limit) - taken - (status === 'Confirmed' ? 1 : 0));
+  show('regMsg', 'Thanks ' + name + ', your registration for ' + ev + ' is ' + status + '.');
+});
+
+document.getElementById('chkBtn').addEventListener('click', function(){
+  var reg = document.getElementById('chk').value.trim().toUpperCase();
+  var f = regs.filter(function(r){ return r.reg === reg; });
+  show('chkMsg', f.length ? f.map(function(r){ return r.ev + ': ' + r.status; }).join(' | ') : 'No registration found for ' + reg + '.');
+});
+</script>
+</body>
+</html>
